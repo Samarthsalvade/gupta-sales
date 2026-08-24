@@ -4,3 +4,9 @@ node_modules
 .env.*
 !.env.example
 .env*
+
+# local editor / OS noise
+.DS_Store
+**/.DS_Store
+.claude/
+.vscode/
