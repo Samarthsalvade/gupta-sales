@@ -3,248 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gupta Sales Corporation</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Gupta Sales Corporation | Sinks, Manhole Covers, Pipes, Cisterns &amp; Bath Fittings</title>
+    <meta name="description" content="Gupta Sales Corporation — trusted supplier of stainless steel sinks, cast iron manhole covers, garden pipes, flush cisterns, and chrome-plated & PVC bath fittings since 1997.">
+    <meta name="theme-color" content="#0b1f3a">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gupta Sales Corporation | Sinks, Manhole Covers, Pipes, Cisterns & Bath Fittings">
+    <meta property="og:description" content="Gupta Sales Corporation — trusted supplier of stainless steel sinks, cast iron manhole covers, garden pipes, flush cisterns, and chrome-plated & PVC bath fittings since 1997.">
+    <meta property="og:image" content="assets/images/logolelo.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="assets/images/favicon-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
-
-<div id="welcome-popup" class="popup-overlay">
-    <div class="popup-content">
-      <img src="logolelo.png" alt="Gupta Sales Logo" class="popup-logo" style="max-width: 100px; margin-bottom: 10px;">
-      <h2>Welcome to Gupta Sales Corporation</h2>
-      <p>Delivering trust and quality since 1997</p>
-      <p>Enter your mobile number to get updates from us.</p>
-      <input type="text" id="popupNumber" placeholder="Enter your mobile number" />
-      <button onclick="submitPopupNumber()">Submit</button>
-      <p id="popupResponseMsg" style="margin-top: 10px;"></p>
-    </div>
-  </div>
-  
-
-    <script>
-    window.onload = function () {
-      document.getElementById("welcome-popup").style.display = "flex";
-    };
-    
-    function submitPopupNumber() {
-      const number = document.getElementById("popupNumber").value;
-      const msg = document.getElementById("popupResponseMsg");
-    
-      // Basic number validation
-      if (!/^[0-9]{10}$/.test(number)) {
-        msg.textContent = "Please enter a valid 10-digit mobile number.";
-        msg.style.color = "red";
-        return;
-      }
-    
-      fetch("https://script.google.com/macros/s/AKfycbz_R-9a0TOQ-aEEDmq3mfWvw9YkXCkXoxXLpvVMQHFyHBYg0g9VXw7Lkxo7RTD0xbqYqA/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ number: number })
-      })
-      .then(() => {
-        msg.textContent = "Thank you! You're subscribed.";
-        msg.style.color = "green";
-        setTimeout(() => {
-          document.getElementById("welcome-popup").style.display = "none";
-        }, 2000);
-      })
-      .catch(err => {
-        console.error("Error:", err);
-        msg.textContent = "Something went wrong.";
-        msg.style.color = "red";
-      });
-    }
-    </script>
-  
-
 <body>
+
+    <div id="welcome-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button type="button" class="popup-close" aria-label="Close">&times;</button>
+            <img src="assets/images/logolelo.png" alt="Gupta Sales Logo" class="popup-logo">
+            <h2>Welcome to Gupta Sales Corporation</h2>
+            <p>Delivering trust and quality since 1997</p>
+            <p>Enter your mobile number to get updates from us.</p>
+            <form id="popupForm">
+                <input type="tel" id="popupNumber" placeholder="Enter your mobile number" />
+                <button type="submit" class="popup-submit">Submit</button>
+            </form>
+            <p id="popupResponseMsg" style="margin-top: 10px;"></p>
+        </div>
+    </div>
+
     <header>
         <div class="logo">
-            <a href="https://maps.google.com/?q=Gupta+Sales+Corporation+165+Opposite+Aradhna+Cinema+U.P.+Border+Prakash+Industrial+Estate+Sahibabad+Industrial+Area+Site+4+Sahibabad+Ghaziabad+Uttar+Pradesh+201005" target="_blank">
-                <img src="logolelo.png" alt="Gupta Sales Logo">
+            <a href="index.html">
+                <img src="assets/images/logolelo.png" alt="Gupta Sales Logo">
             </a>
         </div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
         <nav>
             <ul>
-                <li><a href="#products">Products</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="#products">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="sinks.html">Stainless Steel Sinks</a></li>
+                        <li><a href="manhole-covers.html">Manhole Covers</a></li>
+                        <li><a href="garden-pipes.html">Garden Pipes</a></li>
+                        <li><a href="cisterns.html">Flush Cisterns</a></li>
+                        <li><a href="bath-fittings.html">CP &amp; PVC Bath Fittings</a></li>
+                    </ul>
+                </li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#location">Location</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Welcome to Gupta Sales Corporation</h1>
-        <p>Your Trusted Supplier of Premium Products for Industrial and Domestic Use</p>
+    <section class="hero hero-with-bg hero-bg-fit">
+        <span class="hero-badge">Trusted Since 1997</span>
+        <h1>Premium Sanitary &amp; Industrial Products, Built to Last</h1>
+        <p>Your trusted supplier of stainless steel sinks, cast iron manhole covers, garden pipes, flush cisterns, and chrome-plated &amp; PVC bath fittings for every bathroom.</p>
+        <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">Explore Products</a>
+            <a href="enquiry.html" class="btn btn-ghost">Get in Touch</a>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,40 C240,100 480,0 720,30 C960,60 1200,100 1440,50 L1440,100 L0,100 Z" fill="#f6f8fb"></path>
+            </svg>
+        </div>
     </section>
-    
 
-    <section id="products" class="products">
-        <h2>Our Products</h2>
-    
-        <div class="product-carousel">
-            <div class="product-card">
-                <div class="image-hover">
-                    <img src="sinklelo.jpg" alt="Stainless Steel Sink" class="static-img">
-                    <img src="sinkvidlelo.gif" alt="Stainless Steel Sink GIF" class="hover-gif">
-                </div>
-                <h3>Stainless Steel Sink</h3>
-                <p class="product-description">Top-quality stainless steel sinks for your kitchen. Custom sizes available.</p>
-                <a href="#sink-section">Find More</a>
-            </div>
-            
-            <div class="product-card">
-                <div class="image-hover">
-                    <img src="manhole_lelo.jpeg" alt="Manhole Cover" class="static-img">
-                    <img src="manholevidlelo.gif" alt="Manhole Cover GIF" class="hover-gif">
-                </div>
-                <h3>Manhole Covers</h3>
-                <p class="product-description">Heavy-duty manhole covers for all types of roads and infrastructure.</p>
-                <a href="#manhole-section">Find More</a>
-            </div>
-            
-            <div class="product-card">
-                <div class="image-hover">
-                    <img src="pipelelo.jpg" alt="Garden Pipe" class="static-img">
-                    <img src="pipevidlelo.gif" alt="Garden Pipe GIF" class="hover-gif">
-                </div>
-                <h3>Garden Pipe</h3>
-                <p class="product-description">Flexible and durable garden pipes for every gardening need.</p>
-                <a href="#pipe-section">Find More</a>
-            </div>
-            
-        </div>
-    </section>
-    <section id="sink-details" class="product-detail-section">
-        <h2>Stainless Steel Sink Sizes</h2>
-        <p>Our premium stainless steel sinks come in a variety of sizes to fit every kitchen style and space. Made from high-grade materials ensuring durability and elegance.</p>
-      
-        <div class="product-detail-container">
-          <div class="product-size-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Length</th>
-                  <th>Breadth</th>
-                  <th>Unit</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>15</td><td>12</td><td>in</td></tr>
-                <tr><td>18</td><td>16</td><td>in</td></tr>
-                <tr><td>20</td><td>17</td><td>in</td></tr>
-                <tr><td>18</td><td>24</td><td>in</td></tr>
-                <tr><td>30</td><td>18</td><td>in</td></tr>
-                <tr><td>32</td><td>20</td><td>in</td></tr>
-                <tr><td>37</td><td>18</td><td>in</td></tr>
-                <tr><td>45</td><td>20</td><td>in</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="image-hover image-large">
-            <img src="sinklelo.jpg" alt="Sink Static" class="static-img">
-            <img src="sinkvidlelo.gif" alt="Sink GIF" class="hover-gif">
-          </div>
-        </div>
-      </section>
-      
-    
-      <section id="manhole-section" class="product-detail-section">
-        <h2>Cast Iron Manhole Cover Sizes</h2>
-        <p>We provide robust cast iron manhole covers suitable for roads, residential, and industrial applications. Available in multiple standard square sizes.</p>
-        
-        <div class="product-detail-container">
-            <div class="product-size-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Length</th>
-                            <th>Breadth</th>
-                            <th>Unit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>6</td><td>6</td><td>in</td></tr>
-                        <tr><td>9</td><td>9</td><td>in</td></tr>
-                        <tr><td>12</td><td>12</td><td>in</td></tr>
-                        <tr><td>15</td><td>15</td><td>in</td></tr>
-                        <tr><td>18</td><td>18</td><td>in</td></tr>
-                        <tr><td>20</td><td>20</td><td>in</td></tr>
-                        <tr><td>22</td><td>22</td><td>in</td></tr>
-                        <tr><td>24</td><td>24</td><td>in</td></tr>
-                        <tr><td>27</td><td>27</td><td>in</td></tr>
-                        <tr><td>30</td><td>30</td><td>in</td></tr>
-                        <tr><td>36</td><td>36</td><td>in</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="image-hover image-large">
-                <img src="manhole_lelo.jpeg" alt="Manhole Static" class="static-img">
-                <img src="manholevidlelo.gif" alt="Manhole GIF" class="hover-gif">
-            </div>
-        </div>
-    </section>
-    
-    
-    <section id="pipe-section" class="product-detail-section">
-        <h2>Garden Pipe Sizes</h2>
-        <p>Available in threaded and plain types, our garden pipes are built for flexibility, durability, and efficiency in home and commercial gardens.</p>
-    
-        <div class="product-detail-container">
-            <div class="product-size-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Size</th>
-                            <th>Type</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>8mm</td><td>Plain</td></tr>
-                        <tr><td>0.5in</td><td>Plain / Threaded</td></tr>
-                        <tr><td>0.75in</td><td>Plain / Threaded</td></tr>
-                        <tr><td>1in</td><td>Plain / Threaded</td></tr>
-                        <tr><td>1.25in</td><td>Plain / Threaded</td></tr>
-                        <tr><td>1.5in</td><td>Plain / Threaded</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="image-hover image-large">
-                <img src="pipelelo.jpg" alt="Garden Pipe Static" class="static-img">
-                <img src="pipevidlelo.gif" alt="Garden Pipe GIF" class="hover-gif">
-            </div>
-        </div>
-    </section>
-    
-    
+    <section id="products" class="section">
+        <span class="eyebrow" style="display:block; text-align:center;">What We Offer</span>
+        <h2 class="section-heading">Our Product Range</h2>
+        <p class="section-sub">Five specialised lines, built to recognised sizing standards. Select a category for full specifications.</p>
 
-    <section class="about">
+        <div class="marquee-wrap hub">
+        <div class="hub-grid" id="hub-grid">
+            <div class="hub-card">
+                <div class="hub-card-media">
+                    <img src="assets/images/sinklelo.jpg" alt="Stainless Steel Sink">
+                </div>
+                <div class="hub-card-body">
+                    <h3>Stainless Steel Sinks</h3>
+                    <p>AISI 304-grade, deep-drawn single and double-bowl kitchen sinks with sound-dampening coating. Available in 8 standard sizes or custom cutouts.</p>
+                    <a href="sinks.html" class="btn btn-primary btn-sm">View Sinks</a>
+                </div>
+            </div>
+
+            <div class="hub-card">
+                <div class="hub-card-media">
+                    <img src="assets/images/manhole_lelo.jpeg" alt="Cast Iron Manhole Cover">
+                </div>
+                <div class="hub-card-body">
+                    <h3>Manhole Covers</h3>
+                    <p>Cast iron covers load-rated from A15 to D400, for footpaths, residential drives, and heavy-traffic carriageways. Hinged and lockable options available.</p>
+                    <a href="manhole-covers.html" class="btn btn-primary btn-sm">View Manhole Covers</a>
+                </div>
+            </div>
+
+            <div class="hub-card">
+                <div class="hub-card-media">
+                    <img src="assets/images/pipelelo.jpg" alt="Garden Pipe">
+                </div>
+                <div class="hub-card-body">
+                    <h3>Garden Pipes</h3>
+                    <p>Braided-reinforcement, UV-stabilised garden hose pipes from 8mm to 1.5in, in plain and threaded variants, coiled up to 100 metres.</p>
+                    <a href="garden-pipes.html" class="btn btn-primary btn-sm">View Garden Pipes</a>
+                </div>
+            </div>
+
+            <div class="hub-card">
+                <div class="hub-card-media">
+                    <img src="assets/images/concealed-cistern-static.jpg" alt="Flush Cistern">
+                </div>
+                <div class="hub-card-body">
+                    <h3>Flush Cisterns</h3>
+                    <p>Concealed cisterns for a hidden, space-saving finish and overhead cisterns for easy, no-wall-breaking installs — single and dual-flush options across the range.</p>
+                    <a href="cisterns.html" class="btn btn-primary btn-sm">View Cisterns</a>
+                </div>
+            </div>
+
+            <div class="hub-card">
+                <div class="hub-card-media">
+                    <img src="assets/images/bib-cock-cp.jpg" alt="Chrome Plated Bath Fitting">
+                </div>
+                <div class="hub-card-body">
+                    <h3>CP &amp; PVC Bath Fittings</h3>
+                    <p>Bib cocks, angle valves, pillar cocks, swan necks, sink cocks and 2-in-1 fittings in chrome plating and PVC — from MacPie and other trusted brands.</p>
+                    <a href="bath-fittings.html" class="btn btn-primary btn-sm">View Bath Fittings</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="stats-banner-overlay"></div>
+        <div class="stats-banner-content section-wide">
+            <span class="eyebrow">By The Numbers</span>
+            <h2>Nearly Three Decades of Delivery</h2>
+            <p class="stats-banner-sub">From a single sanitaryware counter in 1997 to a multi-category supplier trusted by contractors, builders, and homeowners across Delhi NCR.</p>
+            <div class="stats-band">
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Years in Business</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Product Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,00,000+</div>
+                    <div class="stat-label">Units Delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Institutional Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <span class="eyebrow" style="display:block; text-align:center;">Why Gupta Sales</span>
+        <h2 class="section-heading">Why Businesses Choose Us</h2>
+        <p class="section-sub">Nearly three decades of sourcing, fabricating, and supplying sanitary and industrial hardware across Delhi NCR and beyond.</p>
+
+        <div class="feature-grid section-wide">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <h3>Quality-Tested Materials</h3>
+                <p>Every batch of steel, cast iron, and PVC/ABS plastic is inspected against our internal quality checklist before it reaches the shop floor.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>
+                </div>
+                <h3>Custom Fabrication</h3>
+                <p>Need a size that isn't in the catalogue? Our workshop takes on custom cutouts and one-off orders for contractors and builders.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="13" height="9"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="5.5" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
+                </div>
+                <h3>Pan-India Dispatch</h3>
+                <p>From single-piece retail orders to full truckloads for municipal tenders, we coordinate freight to sites across the country.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.5L7.5 21l4.5-2.5L16.5 21 15 14.5"/></svg>
+                </div>
+                <h3>Warranty-Backed</h3>
+                <p>Manufacturing-defect warranties across our range, from 7 years on cisterns to 10 years on sinks, so you buy with confidence.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+                </div>
+                <h3>25+ Years of Trust</h3>
+                <p>Founded in 1997, we've grown from a single sanitaryware counter into a multi-category supplier trusted by contractors and homeowners alike.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg>
+                </div>
+                <h3>After-Sales Support</h3>
+                <p>Our team stays reachable after delivery for installation guidance, replacement parts, and maintenance advice.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-stone">
+        <span class="eyebrow" style="display:block; text-align:center;">Client Feedback</span>
+        <h2 class="section-heading">What Our Customers Say</h2>
+        <p class="section-sub">A few words from the contractors, facility managers, and homeowners we've worked with over the years.</p>
+
+        <div class="testimonial-grid section-wide">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">We ordered custom-size sinks for 40 apartments in one go. Every unit matched spec and arrived on schedule — no rework needed.</p>
+                <div class="testimonial-name">R. Malhotra</div>
+                <div class="testimonial-role">Facility Manager, a Ghaziabad housing society</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">Gupta Sales supplied D400-rated manhole covers for our road-widening project. The load certification paperwork made municipal approval painless.</p>
+                <div class="testimonial-name">S. Rathi</div>
+                <div class="testimonial-role">Civil Contractor, Ghaziabad</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">Their 5000L cisterns have held up through three summers without a single leak or algae issue. Installation guidance was genuinely useful.</p>
+                <div class="testimonial-name">A. Chawla</div>
+                <div class="testimonial-role">Procurement Head, a Noida hospitality group</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <span class="eyebrow">Our Story</span>
         <h2>About Us</h2>
-        <p>Founded in 1997 by <b>Shri Subhash Chander Gupta</b>, Gupta Sales Corporation has consistently excelled in delivering top-quality sanitary and industrial products. Our commitment to superior quality, customer satisfaction, and innovation has earned the trust of countless customers over the decades. We continue to set high standards in the sanitary industry with a focus on reliability, durability, and value.</p>
+        <p>Founded in 1997 by <b>Shri Subhash Chander Gupta</b>, we began as a single sanitaryware counter in Sahibabad and grew into a five-category supplier serving homeowners, contractors, builders, and municipal bodies across Delhi NCR.</p>
+        <p style="margin-top: 18px;">Every product line is sourced or fabricated to recognised material norms, inspected in-house, and backed by a team that stays reachable long after the invoice is settled.</p>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p><strong>Gupta Sales Corporation</strong></p>
-        <p>Address: 165, Opposite Aradhna Cinema, U. P. Border, Prakash Industrial Estate, Sahibabad Industrial Area Site 4, Sahibabad, Ghaziabad, Uttar Pradesh 201005</p>
-        <p>Phone: <strong>9891235107</strong></p>
-        <p>Email: <strong>rinkiguptasg@gmail.com</strong></p>
+    <section class="section">
+        <div class="subscribe-strip">
+            <span class="eyebrow">Stay Updated</span>
+            <h2 style="margin-bottom: 8px;">Get Product Updates &amp; Offers</h2>
+            <p style="color: var(--slate); font-size: 0.95rem;">Share your mobile number and our team will reach out with pricing, catalogues, and seasonal offers.</p>
+            <form class="subscribe-form" id="subscribeForm">
+                <input type="tel" id="subscribePhone" placeholder="Enter your 10-digit mobile number" required>
+                <button type="submit" class="btn btn-primary">Notify Me</button>
+            </form>
+            <p class="subscribe-msg" id="subscribeMsg"></p>
+        </div>
     </section>
-    
 
-    <section id="location" class="location">
-        <h2>Visit Us</h2>
-        <a class="location-link" href="https://maps.google.com/?q=Gupta+Sales+Corporation+165+Opposite+Aradhna+Cinema+U.P.+Border+Prakash+Industrial+Estate+Sahibabad+Industrial+Area+Site+4+Sahibabad+Ghaziabad+Uttar+Pradesh+201005" target="_blank">
-            View on Google Maps
-        </a>
+    <section id="contact" class="contact-compact">
+        <div class="contact-compact-inner">
+            <span class="eyebrow">Reach Us</span>
+            <h2>Contact &amp; Visit Us</h2>
+            <ul class="contact-list">
+                <li>
+                    <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+                    <span>165, Opposite Aradhna Cinema, U. P. Border, Prakash Industrial Estate, Sahibabad Industrial Area Site 4, Sahibabad, Ghaziabad, Uttar Pradesh 201005</span>
+                </li>
+                <li>
+                    <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                    <a href="tel:+919891235107" class="phone-link">9891235107</a>
+                </li>
+                <li>
+                    <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+                    <a href="mailto:guptasalescorporation2016@gmail.com">guptasalescorporation2016@gmail.com</a>
+                </li>
+            </ul>
+            <div class="contact-actions">
+                <a class="whatsapp-link" href="https://wa.me/919891235107?text=Hi..%20I%20wanted%20to%20enquire%20about%20your%20products" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.9-7-1.87-1.87-4.36-2.9-7-2.9zm0 18.1a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 1 1 14.86-4.7 8.15 8.15 0 0 1-8 8.55zm4.48-6.13c-.24-.12-1.43-.7-1.66-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02 0 1.2.87 2.35 1 2.51.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+                    Chat on WhatsApp
+                </a>
+                <a id="location" class="location-link" href="https://maps.google.com/?q=Gupta+Sales+Corporation+165+Opposite+Aradhna+Cinema+U.P.+Border+Prakash+Industrial+Estate+Sahibabad+Industrial+Area+Site+4+Sahibabad+Ghaziabad+Uttar+Pradesh+201005" target="_blank">
+                    View on Google Maps
+                </a>
+            </div>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2025 Gupta Sales Corporation. All rights reserved.</p>
     </footer>
+
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>

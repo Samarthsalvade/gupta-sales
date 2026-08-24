@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard | Gupta Sales Corporation</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="assets/images/favicon-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/images/logolelo.png" alt="Gupta Sales Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Back to Website</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="admin-shell">
+        <div class="admin-card">
+            <span class="eyebrow">Owner Access Only</span>
+            <h1 style="font-size: 1.6rem; margin-bottom: 8px;">Subscriber Phone Numbers</h1>
+            <p style="color: var(--slate); font-size: 0.95rem; margin-bottom: 22px;">Enter your admin key to view every mobile number collected from the website's subscribe forms and welcome popup.</p>
+
+            <form class="admin-login" id="adminLoginForm">
+                <input type="password" id="adminKeyInput" placeholder="Enter admin key" autocomplete="off" required>
+                <button type="submit" class="btn btn-primary">Unlock</button>
+            </form>
+            <p class="admin-msg" id="adminMsg"></p>
+
+            <div id="adminResults" style="display:none;">
+                <div class="admin-toolbar">
+                    <span class="admin-count" id="adminCount"></span>
+                    <div style="display:flex; gap:10px;">
+                        <button type="button" class="btn btn-ghost btn-sm" id="refreshBtn" style="color: var(--navy-800); border-color: var(--border);">Refresh</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="downloadBtn">Download CSV</button>
+                    </div>
+                </div>
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Phone Number</th>
+                                <th>Submitted From</th>
+                                <th>Date &amp; Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-card" id="settingsCard" style="display:none; margin-top:24px;">
+            <span class="eyebrow">Enquiry Notifications</span>
+            <h2 style="font-size: 1.3rem; margin-bottom: 8px;">Notification Email</h2>
+            <p style="color: var(--slate); font-size: 0.9rem; margin-bottom: 18px;">Enquiry form submissions are emailed to this address. Change it any time — no redeploy needed.</p>
+            <form class="admin-login" id="settingsForm">
+                <input type="email" id="notifyEmailInput" placeholder="owner@example.com" required>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+            <p class="admin-msg" id="settingsMsg"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Gupta Sales Corporation. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/admin.js" defer></script>
+</body>
+</html>
