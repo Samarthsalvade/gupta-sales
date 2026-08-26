@@ -1703,16 +1703,13 @@ nav ul li.has-dropdown:focus-within .dropdown-menu {
 }
 
 
-/* Tall product shots (swan neck, sink cock) are portrait — roughly 0.7 ratio —
-   but the image box is landscape (~1.2). With `cover` the base of the fitting
-   was cropped away. Fit the whole product instead, on a ground matched to the
-   photos' own flat studio backdrop so the letterboxing is invisible. */
-.image-hover.image-large.tall-product {
-    background: #979597;
-}
-
+/* Swan neck and sink cock were shot portrait (~0.7 ratio) against a landscape
+   box (~1.2). `cover` chopped the base of the fitting off; `contain` left grey
+   bars that never quite matched the photo. Instead the source images now carry
+   their own backdrop extended out to 1.25, so `cover` fills the frame edge to
+   edge, crops only that padding, and never touches the product. */
 .image-hover.image-large.tall-product img {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
 }
 
