@@ -1702,6 +1702,20 @@ nav ul li.has-dropdown:focus-within .dropdown-menu {
     min-height: 1.2em;
 }
 
+
+/* Tall product shots (swan neck, sink cock) are portrait — roughly 0.7 ratio —
+   but the image box is landscape (~1.2). With `cover` the base of the fitting
+   was cropped away. Fit the whole product instead, on a ground matched to the
+   photos' own flat studio backdrop so the letterboxing is invisible. */
+.image-hover.image-large.tall-product {
+    background: #979597;
+}
+
+.image-hover.image-large.tall-product img {
+    object-fit: contain;
+    object-position: center;
+}
+
 /* ---------------- Fitting cards (bath fittings) ---------------- */
 .fitting-grid {
     display: grid;
